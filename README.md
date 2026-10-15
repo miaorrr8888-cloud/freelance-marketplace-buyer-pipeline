@@ -30,9 +30,9 @@ python scripts/review_leads.py examples/leads.json
 
 已补：新增离线项目导入检查、待报价状态提示、重复识别和预付款请求排除；提供合成示例与测试。
 
-## 仍然缺什么
+## 当前限制
 
-不自动登录、投标或购买额度；accepting_bids 只是输入声明，项目是否开放、雇主是否可靠和费用仍需到平台核验。
+快照由使用者提供，工具不能证明网页来源或雇主可靠；仍需本人核对平台状态、费用与预算。不会登录、投标或支付。
 
 ## 验证与使用注意
 
@@ -49,3 +49,15 @@ python -m unittest discover -s tests -v
 由 miaorrr8888-cloud 在 AI 辅助下积累和维护，来源与边界见 [PROVENANCE.md](PROVENANCE.md)，许可见 [LICENSE](LICENSE)。
 
 [全部独立技能与阶段性工作记录](https://github.com/miaorrr8888-cloud/agent-skills-worklog)
+
+## 第二轮：采购证据复核
+
+新增页面快照与原文摘录匹配、快照哈希和 24 小时时效标记，过期或无原文则 HOLD。
+
+在仓库根目录运行：
+
+```sh
+python scripts/review_snapshot.py examples/snapshot.json
+```
+
+新增工具的输入字段见脚本参数与 examples/。快照示例采用固定日期，过期后正常返回 HOLD；需要检查新采集的页面时填写真实带时区的采集时间，不要改日期伪装新证据。
