@@ -29,3 +29,7 @@ license: MIT
 ## 扩展能力
 
 新增页面快照与原文摘录匹配、快照哈希和 24 小时时效标记，过期或无原文则 HOLD。 使用前阅读 [README.md](README.md) 的“第二轮”命令和当前限制。不要把本地检查、人工声明或模拟响应解释为实时平台验证。
+
+## 面向使用者的说明
+
+解释用途、适用人群、下载和第一次运行时，读 [USER_GUIDE.md](USER_GUIDE.md)；需要中文对外介绍时参考 [INTRODUCTION.md](INTRODUCTION.md)，不要把介绍稿等同于已发布。

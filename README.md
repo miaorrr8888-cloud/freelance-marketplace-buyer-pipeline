@@ -1,5 +1,7 @@
 # 自由职业采购需求筛选
 
+[新手逐步使用指南](USER_GUIDE.md) · [用途与适用人群介绍](INTRODUCTION.md)
+
 `freelance-marketplace-buyer-pipeline` · 独立技能仓库 · MIT
 
 适合：找外包项目、准备报价的个人或小团队
