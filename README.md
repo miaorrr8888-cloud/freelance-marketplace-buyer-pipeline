@@ -1,37 +1,51 @@
-# freelance-marketplace-buyer-pipeline
+# 自由职业采购需求筛选
 
-> Packaged by the WorkBuddy History Audit (2026-10-14). Source copied verbatim from the
-> original location; **no modifications made to the original project**.
+`freelance-marketplace-buyer-pipeline` · 独立技能仓库 · MIT
 
-## 功能介绍
-当需要找到「今天就能提交报价」的真实外包采购需求（而不是在论坛里找讨论问题的人）时使用。本技能记录了各自由职业平台的实测可达性、freelancer.com 公开项目页的完整解析方法与踩坑、以及 A/B/C 三层筛选 + 机会比排序 + 地域排除的确定性实现。触发词：找客户、可投递需求、报价机会、买家需求、brief、外包含糊需求、Upwork、Fiverr、freelancer.com、buyer pipeline。
+适合：找外包项目、准备报价的个人或小团队
 
-## 起源与许可
-- 类型: 用户原创 Skill (agent_created)
-- 许可: MIT (见 LICENSE)
-- 是否含密钥/Token: 否 (已通过审计扫描)
+## 解决什么问题
 
-## 目录内容
-- `SKILL.md` / `README.md` — 技能定义与使用说明
-- 脚本与测试 — 见各子目录
-- `LICENSE` — MIT
+区分正在采购的项目、招聘岗位与普通公司线索，把精力放在值得继续核验的需求上。
 
-## 发布前检查清单
-- [x] 无硬编码密钥 / Cookie / Token
-- [x] 依赖清楚 (stdlib-only 或显式声明)
-- [x] 含使用说明
-- [ ] 作者补充中文/英文双语 README
-- [ ] 补充 CI 测试 (如适用)
+## 快速开始
 
-## Verified scope
-This package does not establish current platform availability, demand, sales or permission to contact people.
-Ranking is a heuristic applied to supplied evidence, not independent verification.
-Use authorized sources; live platform access and outreach were not tested.
+Python 3.10+，标准库，不调用付费接口。
 
-## 独立仓库
+在本仓库根目录运行：
 
-本仓库只包含 freelance-marketplace-buyer-pipeline 一个技能。
-源码目录、SKILL.md、许可和相关测试均可独立取得，不依赖其他技能仓库。
-工作记录与其他技能入口：[agent-skills-worklog](https://github.com/miaorrr8888-cloud/agent-skills-worklog)。
+```sh
+python scripts/review_leads.py examples/leads.json
+```
 
-这是说明型技能，没有可执行程序，因此不声称有程序单元测试。
+## 输入与输出
+
+**输入**：leads 数组，字段同示例；采购项目 kind=project_request；accepting_bids 必须是布尔值。不要用招聘岗位冒充可报价外包。
+
+**输出**：离线 JSON 审查表和排除原因。不会报价、发送消息或声明赢单概率。
+
+## 本次完善
+
+原有缺口：原来是经验说明，缺统一输入输出和可复现演示。
+
+已补：新增离线项目导入检查、待报价状态提示、重复识别和预付款请求排除；提供合成示例与测试。
+
+## 仍然缺什么
+
+不自动登录、投标或购买额度；accepting_bids 只是输入声明，项目是否开放、雇主是否可靠和费用仍需到平台核验。
+
+## 验证与使用注意
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+测试覆盖被断言的离线行为，不等于真实平台、生产模型或业务效果验证。
+
+示例数据和图片均为合成演示，不是真实客户、交易、销量或模型成绩。不要提交真实凭据和私有输入。
+
+## 来源与工作记录
+
+由 miaorrr8888-cloud 在 AI 辅助下积累和维护，来源与边界见 [PROVENANCE.md](PROVENANCE.md)，许可见 [LICENSE](LICENSE)。
+
+[全部独立技能与阶段性工作记录](https://github.com/miaorrr8888-cloud/agent-skills-worklog)
