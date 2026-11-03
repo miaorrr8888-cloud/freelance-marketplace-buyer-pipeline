@@ -1,9 +1,12 @@
 ---
 name: freelance-marketplace-buyer-pipeline
-description: 从获准访问的自由职业项目页面筛选仍可报价的采购需求，区分招聘岗位与冷开发线索。
+description: 筛选自由职业平台的客户需求，核对预算、原文和时效，整理待人工审核的机会，不自动投标或付款。
 license: MIT
----
+version: "1.1.0"
+display_name: "接单需求筛选"
+agent_created: true
 
+---
 # 外包采购需求筛选
 
 先确定服务范围、最低预算、交付能力与付费限制。通过当前可用的平台工具、公开页面或用户导出整理候选。
