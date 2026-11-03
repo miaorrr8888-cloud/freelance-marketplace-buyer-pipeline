@@ -2,7 +2,7 @@
 name: freelance-marketplace-buyer-pipeline
 description: 筛选自由职业平台的客户需求，核对预算、原文和时效，整理待人工审核的机会，不自动投标或付款。
 license: MIT
-version: "1.1.0"
+version: 1.1.1
 display_name: "接单需求筛选"
 agent_created: true
 
